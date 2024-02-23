@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/Users/jeremy/work_dir/devops/ticketsservice/clusterDb" # Replace with your local path
+    path: "/Users/PhidelistOluochOmuya/Desktop/devops/ticketsservice/clusterDb" # Replace with your local path
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

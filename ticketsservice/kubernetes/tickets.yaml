@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: tickets-app
-          image: muhohoweb/tickets-service
+          image: omuya/tickets-service
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

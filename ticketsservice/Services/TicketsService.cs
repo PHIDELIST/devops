@@ -1,5 +1,3 @@
-
-
 using System.Linq;
 using System.Net;
 using AutoMapper;
@@ -43,11 +41,11 @@ public class TicketService : ITicketService
     {
         try
         {
-        var existingTicket = await _dbContext.Tickets.Where(t => (bool)!t.isDeleted).Where(t => t.TicketID == ticketId).FirstOrDefaultAsync();
+        var existingTicket = await _dbContext.Tickets.Where(t => (bool)!t.IsDeleted).Where(t => t.TicketID == ticketId).FirstOrDefaultAsync();
         if (existingTicket == null)
             return Result.Success(HttpStatusCode.NotFound, "Ticket not found");
 
-        existingTicket.isDeleted = true;
+        existingTicket.IsDeleted = true;
 
         await _dbContext.SaveChangesAsync();
 

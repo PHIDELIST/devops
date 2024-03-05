@@ -1,0 +1,25 @@
+name: Deployment Workflow
+
+on:
+  workflow_dispatch:
+    # inputs:
+    #   environment:
+    #     description: 'The target environment'
+    #     type: string
+    #     required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: master
+          path: .github/workflows/
+          
+      - name: Deploy to ${{inputs.environment}}
+        run: |
+          #Your deployment script or commands based on the environment
+          echo "Deploying to ${{inputs.environment}} environment"

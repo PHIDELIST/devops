@@ -11,7 +11,6 @@ spec:
       app: tickets-app
   template:
     metadata:
-      name: tickets-app
       labels:
         app: tickets-app
     spec:
@@ -22,7 +21,9 @@ spec:
             - containerPort: 8080
           imagePullPolicy: Always
       restartPolicy: Always
+
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -34,8 +35,9 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
-  type: ClusterIP
+  type: LoadBalancer
 ---
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -53,4 +55,3 @@ spec:
                 name: tickets-service
                 port:
                   number: 80
-      

@@ -56,15 +56,14 @@ public class Startup
         {
             app.UseDeveloperExceptionPage();
         }
-
-        app.UseHttpsRedirection();
+        
+        // app.UseHttpsRedirection();
         app.UseCors(ticketsSpecifiOrigins);
 
         app.UseRouting();
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-
         app.UseSwagger();
         app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Tickets API"); });
     }

@@ -1,10 +1,12 @@
 ﻿# Use the official Microsoft ASP.NET Core runtime as a base image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 80
+# EXPOSE 80
 EXPOSE 8080
-EXPOSE 443
-
+# EXPOSE 8081
+# EXPOSE 443
+# EXPOSE 5034
+# ENV ASPNETCORE_HTTP_PORTS 5034
 # Use the official Microsoft ASP.NET Core SDK as a build image
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src

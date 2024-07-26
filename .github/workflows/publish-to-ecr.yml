@@ -3,7 +3,7 @@ name: Build and Publish .NET Docker Image to ECR
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch: {}
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v4
         with:
-          context: ../ticketsservice/Dockerfile
+          file: ./ticketsservice/Dockerfile
           platforms: linux/amd64
           push: true
           tags: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/dotnet:latest
